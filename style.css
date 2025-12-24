@@ -1,45 +1,172 @@
-body {
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #fafafa;
-    color: #111;
+/* ---------- CSS RESET ---------- */
+* {
+    box-sizing: border-box;
 }
 
+/* ---------- TYPOGRAPHY ---------- */
+
+body {
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+}
+
+h1,h2 {
+    font-family: "DM Sans", sans-serif;
+    letter-spacing: -3px;
+}
+
+h1 {
+    font-size: clamp(2.8rem, 6vw, 4.5rem);
+    font-weight: 600;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.8rem;
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+h3 {
+    font-size: 1.05rem;
+    font-weight: 500;
+    margin-bottom: 0.25rem;
+}
+
+p {
+    font-family: "Inter", sans-serif;
+    font-size: 0.95rem;
+    line-height: 1.55;
+    color: #3a3a3a;
+    max-width: 520px;
+}
+
+/* ---------- LAYOUT ---------- */
 header {
-    padding: 2rem;
+    padding: 4rem 2rem 2rem;
     text-align: center;
 }
 
+nav {
+    margin-top: 1rem;
+}
+
 nav a {
-    margin: 0 1rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     text-decoration: none;
-    color: #555;
+    color: #121212;
+    margin: 0 1rem;
+    opacity: 0.7;
+}
+
+nav a:hover {
+    opacity: 1;
 }
 
 main {
-    max-width: 900px;
+    max-width: 1100px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 4rem 2rem;
 }
 
+/* ---------- SECTIONS ---------- */
 section {
-    margin-bottom: 3rem;
+    margin-bottom: 6rem;
 }
 
+/* ---------- DOWNLOAD CARDS ---------- */
 .card {
-    background: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    background: transparent;
+    padding: 0;
+    max-width: 420px;
 }
 
+.card p {
+    margin-top: 0.25rem;
+}
+
+/* ---------- BUTTONS ---------- */
 .button {
     display: inline-block;
-    margin-top: 1rem;
-    padding: 0.6rem 1.2rem;
-    background: #111;
-    color: white;
+    margin-top: 1.25rem;
+    font-size: 0.75rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
     text-decoration: none;
-    border-radius: 999px;
+    color: #b7322c;
+    /* warm red */
+    position: relative;
+}
+
+.button::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -4px;
+    width: 100%;
+    height: 1px;
+    background: #b7322c;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+}
+
+.button:hover::after {
+    transform: scaleX(1);
+}
+
+/* ---------- FOOTER ---------- */
+
+img {
+    max-width: 50%;
+    height: auto;
+
+}
+footer {
+    text-align: center;
+    justify-content: center;
+    padding: 3rem 2rem;
+    font-size: 0.75rem;
+    color: #555;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+/* ---------- PHOTO FRAMES ---------- */
+.photo-frame {
+    position: relative;
+    max-width: 420px;
+    margin: 4rem auto;
+    filter: saturate(0.95) contrast(0.95);
+}
+
+.photo-frame img {
+    width: 100%;
+    display: block;
+}
+
+/* subtle film edge */
+.photo-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+/* ---------- FILM GRAIN ---------- */
+.grain {
+    position: fixed;
+    inset: 0;
+    background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+    opacity: 0.08;
+    pointer-events: none;
+    z-index: 2;
+}
+.offset-left {
+    transform: translateX(-40px);
+}
+
+.offset-right {
+    transform: translateX(40px);
 }
