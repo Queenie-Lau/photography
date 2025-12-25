@@ -79,7 +79,6 @@ section {
 .card {
     background: transparent;
     padding: 0;
-    max-width: 420px;
 }
 
 .card p {
@@ -89,7 +88,7 @@ section {
 /* ---------- BUTTONS ---------- */
 .button {
     display: inline-block;
-    margin-top: 1.25rem;
+    margin-top: 3rem;
     font-size: 0.75rem;
     letter-spacing: 0.12em;
     text-transform: uppercase;
@@ -119,10 +118,10 @@ section {
 /* ---------- FOOTER ---------- */
 
 img {
-    max-width: 50%;
+    max-width: 100%;
     height: auto;
-
 }
+
 footer {
     text-align: center;
     justify-content: center;
@@ -169,4 +168,63 @@ footer {
 
 .offset-right {
     transform: translateX(40px);
+}
+
+/* ---------- BEFORE / AFTER SLIDER ---------- */
+.Red-Lut-Container {
+    display: flex;
+    flex-direction: row;
+    gap: 2rem;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 100%;
+}
+
+.slider {
+    width: 300px;
+    /* smaller width per slider */
+    max-width: 100%;
+    position: relative;
+}
+
+.img-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+.img-container img.before,
+.img-container img.after {
+    display: block;
+    width: 100%;
+    /* scale images to container */
+    height: auto;
+    user-select: none;
+    pointer-events: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.img-container img.before {
+    z-index: 1;
+}
+
+.img-container img.after {
+    z-index: 2;
+    clip-path: inset(0 20% 0 0);
+    /* start halfway */
+}
+
+.handle {
+    position: absolute;
+    top: 0;
+    left: 80%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 100%;
+    background-color: #b7322c;
+    cursor: ew-resize;
+    z-index: 3;
+    border-radius: 3px;
 }
